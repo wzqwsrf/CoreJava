@@ -4,6 +4,14 @@
  * @Description:String源码，常用方法
  */
 public class JavaString {
+
+    /**
+     * 关于equals和hashCode。
+     * 这个是Object中的方法，当equals返回true时，hashCode一定是相等的。
+     * 所以如果equals被重写，通常情况下有必要重写hashCode方法，以维护hashcode的常规协定，
+     * 该协定声明相等对象必须具有相等的哈希码。
+     */
+
     /**
      * Compares this string to the specified object.  The result is {@code
      * true} if and only if the argument is not {@code null} and is a {@code
