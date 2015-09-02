@@ -1,3 +1,4 @@
+package com.wzq.core.jdk;
 /**
  * @Author:wangzhenqing
  * @Date:2015年01月17日18:52:58
@@ -27,27 +28,27 @@ public class JavaString {
      * @see  #compareTo(String)
      * @see  #equalsIgnoreCase(String)
      */
-    public boolean equals(Object anObject) {
-        if (this == anObject) {
-            return true;
-        }
-        if (anObject instanceof String) {
-            String anotherString = (String) anObject;
-            int n = value.length;
-            if (n == anotherString.value.length) {
-                char v1[] = value;
-                char v2[] = anotherString.value;
-                int i = 0;
-                while (n-- != 0) {
-                    if (v1[i] != v2[i])
-                        return false;
-                    i++;
-                }
-                return true;
-            }
-        }
-        return false;
-    }
+//    public boolean equals(Object anObject) {
+//        if (this == anObject) {
+//            return true;
+//        }
+//        if (anObject instanceof String) {
+//            String anotherString = (String) anObject;
+//            int n = value.length;
+//            if (n == anotherString.value.length) {
+//                char v1[] = value;
+//                char v2[] = anotherString.value;
+//                int i = 0;
+//                while (n-- != 0) {
+//                    if (v1[i] != v2[i])
+//                        return false;
+//                    i++;
+//                }
+//                return true;
+//            }
+//        }
+//        return false;
+//    }
 
     /**
      * Returns a hash code for this string. The hash code for a
@@ -62,18 +63,18 @@ public class JavaString {
      *
      * @return  a hash code value for this object.
      */
-    public int hashCode() {
-        int h = hash;
-        if (h == 0 && value.length > 0) {
-            char val[] = value;
-
-            for (int i = 0; i < value.length; i++) {
-                h = 31 * h + val[i];
-            }
-            hash = h;
-        }
-        return h;
-    }
+//    public int hashCode() {
+//        int h = hash;
+//        if (h == 0 && value.length > 0) {
+//            char val[] = value;
+//
+//            for (int i = 0; i < value.length; i++) {
+//                h = 31 * h + val[i];
+//            }
+//            hash = h;
+//        }
+//        return h;
+//    }
 
     /**
      * Compares two strings lexicographically.
@@ -116,23 +117,23 @@ public class JavaString {
      *          value greater than <code>0</code> if this string is
      *          lexicographically greater than the string argument.
      */
-    public int compareTo(String anotherString) {
-        int len1 = value.length;
-        int len2 = anotherString.value.length;
-        int lim = Math.min(len1, len2);
-        char v1[] = value;
-        char v2[] = anotherString.value;
-
-        int k = 0;
-        while (k < lim) {
-            char c1 = v1[k];
-            char c2 = v2[k];
-            if (c1 != c2) {
-                return c1 - c2;
-            }
-            k++;
-        }
-        return len1 - len2;
-    }
+//    public int compareTo(String anotherString) {
+//        int len1 = value.length;
+//        int len2 = anotherString.value.length;
+//        int lim = Math.min(len1, len2);
+//        char v1[] = value;
+//        char v2[] = anotherString.value;
+//
+//        int k = 0;
+//        while (k < lim) {
+//            char c1 = v1[k];
+//            char c2 = v2[k];
+//            if (c1 != c2) {
+//                return c1 - c2;
+//            }
+//            k++;
+//        }
+//        return len1 - len2;
+//    }
 
 }

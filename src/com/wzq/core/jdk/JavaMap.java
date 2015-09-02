@@ -1,4 +1,4 @@
-package com.company;
+package com.wzq.core.jdk;
 
 /**
  * @Author:wangzhenqing
@@ -18,28 +18,28 @@ public class JavaMap {
      *         (A <tt>null</tt> return can also indicate that the map
      *         previously associated <tt>null</tt> with <tt>key</tt>.)
      */
-    public V put(K key, V value) {
-        if (table == EMPTY_TABLE) {
-            inflateTable(threshold);
-        }
-        if (key == null)
-            return putForNullKey(value);
-        int hash = hash(key);
-        int i = indexFor(hash, table.length);
-        for (Entry<K,V> e = table[i]; e != null; e = e.next) {
-            Object k;
-            if (e.hash == hash && ((k = e.key) == key || key.equals(k))) {
-                V oldValue = e.value;
-                e.value = value;
-                e.recordAccess(this);
-                return oldValue;
-            }
-        }
-
-        modCount++;
-        addEntry(hash, key, value, i);
-        return null;
-    }
+//    public V put(K key, V value) {
+//        if (table == EMPTY_TABLE) {
+//            inflateTable(threshold);
+//        }
+//        if (key == null)
+//            return putForNullKey(value);
+//        int hash = hash(key);
+//        int i = indexFor(hash, table.length);
+//        for (Entry<K,V> e = table[i]; e != null; e = e.next) {
+//            Object k;
+//            if (e.hash == hash && ((k = e.key) == key || key.equals(k))) {
+//                V oldValue = e.value;
+//                e.value = value;
+//                e.recordAccess(this);
+//                return oldValue;
+//            }
+//        }
+//
+//        modCount++;
+//        addEntry(hash, key, value, i);
+//        return null;
+//    }
 
     /**
      * Adds a new entry with the specified key, value and hash code to
@@ -48,15 +48,15 @@ public class JavaMap {
      *
      * Subclass overrides this to alter the behavior of put method.
      */
-    void addEntry(int hash, K key, V value, int bucketIndex) {
-        if ((size >= threshold) && (null != table[bucketIndex])) {
-            resize(2 * table.length);
-            hash = (null != key) ? hash(key) : 0;
-            bucketIndex = indexFor(hash, table.length);
-        }
-
-        createEntry(hash, key, value, bucketIndex);
-    }
+//    void addEntry(int hash, K key, V value, int bucketIndex) {
+//        if ((size >= threshold) && (null != table[bucketIndex])) {
+//            resize(2 * table.length);
+//            hash = (null != key) ? hash(key) : 0;
+//            bucketIndex = indexFor(hash, table.length);
+//        }
+//
+//        createEntry(hash, key, value, bucketIndex);
+//    }
 
     /**
      * Like addEntry except that this version is used when creating entries
@@ -66,11 +66,11 @@ public class JavaMap {
      * Subclass overrides this to alter the behavior of HashMap(Map),
      * clone, and readObject.
      */
-    void createEntry(int hash, K key, V value, int bucketIndex) {
-        Entry<K,V> e = table[bucketIndex];
-        table[bucketIndex] = new Entry<>(hash, key, value, e);
-        size++;
-    }
+//    void createEntry(int hash, K key, V value, int bucketIndex) {
+//        Entry<K,V> e = table[bucketIndex];
+//        table[bucketIndex] = new Entry<>(hash, key, value, e);
+//        size++;
+//    }
 
     /**
      * Returns the value to which the specified key is mapped,
@@ -89,33 +89,33 @@ public class JavaMap {
      *
      * @see #put(Object, Object)
      */
-    public V get(Object key) {
-        if (key == null)
-            return getForNullKey();
-        Entry<K,V> entry = getEntry(key);
-
-        return null == entry ? null : entry.getValue();
-    }
+//    public V get(Object key) {
+//        if (key == null)
+//            return getForNullKey();
+//        Entry<K,V> entry = getEntry(key);
+//
+//        return null == entry ? null : entry.getValue();
+//    }
 
     /**
      * Returns the entry associated with the specified key in the
      * HashMap.  Returns null if the HashMap contains no mapping
      * for the key.
      */
-    final Entry<K,V> getEntry(Object key) {
-        if (size == 0) {
-            return null;
-        }
-
-        int hash = (key == null) ? 0 : hash(key);
-        for (Entry<K,V> e = table[indexFor(hash, table.length)];
-             e != null;
-             e = e.next) {
-            Object k;
-            if (e.hash == hash &&
-                    ((k = e.key) == key || (key != null && key.equals(k))))
-                return e;
-        }
-        return null;
-    }
+//    final Entry<K,V> getEntry(Object key) {
+//        if (size == 0) {
+//            return null;
+//        }
+//
+//        int hash = (key == null) ? 0 : hash(key);
+//        for (Entry<K,V> e = table[indexFor(hash, table.length)];
+//             e != null;
+//             e = e.next) {
+//            Object k;
+//            if (e.hash == hash &&
+//                    ((k = e.key) == key || (key != null && key.equals(k))))
+//                return e;
+//        }
+//        return null;
+//    }
 }
