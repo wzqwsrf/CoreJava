@@ -286,11 +286,11 @@ public abstract class DataBaseObject {
 		if (rsmd.getColumnType(column) == Types.CLOB) { //对oracle的超长字符类型CLOB的特殊处理
 
 
-//			if (obj != null) {
-//				oracle.sql.CLOB clobTemp = (oracle.sql.CLOB) obj;
-//				String strTemp = clobTemp.getSubString((long) 1, (int) clobTemp.length());
-//				obj = strTemp;
-//			}
+			if (obj != null) {
+				oracle.sql.CLOB clobTemp = (oracle.sql.CLOB) obj;
+				String strTemp = clobTemp.getSubString((long) 1, (int) clobTemp.length());
+				obj = strTemp;
+			}
 		}
 		return obj;
 
