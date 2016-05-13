@@ -18,6 +18,9 @@ public class ReflectDemo {
         System.out.println(reflectDemo.getClass().getName());
     }
 
+    /**
+     * 获取Class对象的三种方式
+     */
     public static void reflect2() {
         Class<?> name1 = null;
         Class<?> name2;
@@ -76,6 +79,7 @@ public class ReflectDemo {
         }
         Field fields[] = name.getDeclaredFields();
         for (int i = 0; i < fields.length; i++) {
+//          获取修饰符
             int modifier = fields[i].getModifiers();
             String priv = Modifier.toString(modifier);
             Class<?> type = fields[i].getType();
