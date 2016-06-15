@@ -5,6 +5,7 @@ package com.wzq.core.Synchronized;
  * Date: 2016-06-14 18:42:27
  * Description: volatile 银行
  */
+
 public class Bank3 {
     private volatile int count = 0;
 
