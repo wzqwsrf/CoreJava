@@ -1,4 +1,4 @@
-package com.wzq.core.thread;
+package com.wzq.core.producerconsumer;
 
 import java.util.Date;
 import java.util.Vector;

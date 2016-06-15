@@ -1,4 +1,4 @@
-package com.wzq.core.thread;
+package com.wzq.core.producerconsumer;
 
 /**
  * Author: zhenqing.wang <wangzhenqing1008@163.com>
