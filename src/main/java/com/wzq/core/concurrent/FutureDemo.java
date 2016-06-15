@@ -1,4 +1,4 @@
-package com.wzq.core.future;
+package com.wzq.core.concurrent;
 
 import java.util.ArrayList;
 import java.util.List;
