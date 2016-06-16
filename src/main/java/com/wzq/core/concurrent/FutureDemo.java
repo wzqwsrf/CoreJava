@@ -51,6 +51,7 @@ public class FutureDemo {
                 e.printStackTrace();
             }
         }
+        executorService.shutdown();
     }
 
     public static void main(String[] args) {
