@@ -34,7 +34,7 @@ public class SocketServer {
         public WangzqRunnable(Socket socket) throws IOException {
             this.socket = socket;
             this.bufferedReader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-            this.printWriter = new PrintWriter(socket.getOutputStream(), true);
+            this.printWriter = new PrintWriter(socket.getOutputStream());
         }
 
         @Override
@@ -46,9 +46,11 @@ public class SocketServer {
                 while (!result.equals("bye")) {
                     System.out.println("Client(" + name + ")say:" + result);
                     printWriter.println("Hello Client(" + name + "), I am Server!");
+                    printWriter.flush();
                     result = bufferedReader.readLine();
                 }
                 printWriter.println("Client(" + name + ") exit!");
+                printWriter.flush();
                 printWriter.close();
                 bufferedReader.close();
                 socket.close();
