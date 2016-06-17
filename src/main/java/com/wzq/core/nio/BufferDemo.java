@@ -1,7 +1,11 @@
 package com.wzq.core.nio;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.RandomAccessFile;
 import java.nio.ByteBuffer;
 import java.nio.IntBuffer;
+import java.nio.channels.FileChannel;
 
 /**
  * Author: zhenqing.wang <wangzhenqing1008@163.com>
@@ -22,8 +26,28 @@ public class BufferDemo {
         }
     }
 
+    public void buffer1(){
+        try {
+            RandomAccessFile accessFile = new RandomAccessFile("/home/zhenqingwang/solution.java","rw");
+            FileChannel channel = accessFile.getChannel();
+            ByteBuffer byteBuffer = ByteBuffer.allocate(48);
+            int bytesRead = channel.read(byteBuffer);
+            while(bytesRead != -1){
+                byteBuffer.flip();
+                while(byteBuffer.hasRemaining()){
+                    System.out.println((char)byteBuffer.get());
+                }
+                byteBuffer.clear();
+                bytesRead = channel.read(byteBuffer);
+            }
+        } catch (IOException e){
+            e.printStackTrace();
+        }
+    }
+
     public static void main(String[] args) {
         BufferDemo bufferDemo = new BufferDemo();
-        bufferDemo.buffer();
+//        bufferDemo.buffer();
+        bufferDemo.buffer1();
     }
 }
