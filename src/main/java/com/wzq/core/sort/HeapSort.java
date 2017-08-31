@@ -8,26 +8,17 @@ import java.util.Random;
  * Description: 堆排序实现，本例为最大堆实现
  */
 public class HeapSort {
-    private int array[];
 
-    public HeapSort(int len) {
-        array = new int[len];
-        Random random = new Random();
-        for (int i = 0; i < len; i++) {
-            array[i] = random.nextInt(20);
-        }
-    }
-
-    public void buildMaxHeap() {
+    public void buildMaxHeap(int []array) {
         int len = array.length;
         int index = len / 2 - 1;
         for (int i = index; i >= 0; i--) {
-            maxHeapify(i, len);
+            maxHeapify(array, i, len);
         }
-        printArray();
+        printArray(array);
     }
 
-    private void maxHeapify(int index, int len) {
+    private void maxHeapify(int []array, int index, int len) {
         int left = 2 * index + 1;
         int right = 2 * index + 2;
         int max = index;
@@ -41,22 +32,22 @@ public class HeapSort {
             int temp = array[index];
             array[index] = array[max];
             array[max] = temp;
-            maxHeapify(max, len);
+            maxHeapify(array, max, len);
         }
     }
 
-    public void heapSort() {
-        buildMaxHeap();
+    public void heapSort(int []array) {
+        buildMaxHeap(array);
         int len = array.length;
         for (int i = len - 1; i > 0; i--) {
             int temp = array[0];
             array[0] = array[i];
             array[i] = temp;
-            maxHeapify(0, i);
+            maxHeapify(array, 0, i);
         }
     }
 
-    public void printArray() {
+    public void printArray(int []array) {
         for (int i = 0; i < array.length; i++) {
             System.out.print(array[i] + " ");
         }
@@ -64,8 +55,14 @@ public class HeapSort {
     }
 
     public static void main(String[] args) {
-        HeapSort heap = new HeapSort(10);
-        heap.heapSort();
-        heap.printArray();
+        int len = 10;
+        int[] array = new int[len];
+        Random random = new Random();
+        for (int i = 0; i < len; i++) {
+            array[i] = random.nextInt(20);
+        }
+        HeapSort heap = new HeapSort();
+        heap.heapSort(array);
+        heap.printArray(array);
     }
 }
